@@ -15,3 +15,65 @@
 
 </body>
 </html>
+<!DOCTYPE html>
+<html>
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1.0">
+
+    <title>RMS Video Editor</title>
+
+</head>
+
+<body>
+
+    <h1>RMS Video Editor</h1>
+
+    <p>Loading video editor...</p>
+
+
+    <script src="https://media-editor.cloudinary.com/latest/all.js"></script>
+
+
+    <script>
+
+        const editor = cloudinary.mediaEditor();
+
+        editor.update({
+
+            cloudName: "Real Message Sender",
+
+            publicIds: [
+                {
+                    publicId: "WhatsApp_Video_2026-10-01_at_8.47.30_AM",
+                    resourceType: "video"
+                }
+            ],
+
+            video: {
+                steps: ["trim"]
+            }
+
+        });
+
+
+        editor.on("export", function(data) {
+
+            console.log("VIDEO EXPORTED");
+
+            console.log(data);
+
+        });
+
+
+        editor.show();
+
+    </script>
+
+</body>
+
+</html>
